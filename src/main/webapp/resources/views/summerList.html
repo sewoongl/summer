@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>List</title>
+<script type="text/javascript" src="/summer/webjars/jquery/3.3.1/dist/jquery.min.js"></script>
+
+</head>
+<body>
+	<ul id="clientList"></ul>
+</body>
+<script>
+	$.ajax({url : "/summer/pll/join/List"})
+	.done(function(data){
+		var dt = JSON.parse(data).result;
+		console.log(dt);
+		for(var i = 0; i < dt.length; i++){
+			$("#clientList").append("<li><a href='/summer/pll2/SelectOneView?NO=" + dt[i].NO + "'>" + " 아이디 :" + dt[i].ID +"</a></li>")
+		}
+			
+	});
+</script>
+</html>

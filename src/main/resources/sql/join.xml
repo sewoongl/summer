@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="join">
+  
+  <select id="summerList" resultType="HashMap">
+  	select * from `join` where YN = 'N'
+  </select>
+  
+  <select id="summerOne" parameterType="HashMap" resultType="HashMap">
+  	select * from `join` where NO = #{NO}
+  </select>
+  
+  <insert id="summerinsert" parameterType="HashMap">
+  	insert into `join` 
+  		(ID, PW, SX, BD) 
+  	values 
+  		(#{ID},#{PW},#{SX},#{BD})
+  </insert>
+  
+  <update id="summerupdate" parameterType="HashMap">
+  	update `join` 
+  	set ID = #{ID}, 
+  		PW = #{PW}
+  	where NO = #{NO}
+  </update>
+  
+  <update id="summerdelete" parameterType="HashMap">
+  	update `join` 
+  	set YN = 'Y' 
+  	where NO = #{NO}
+  </update>
+  
+</mapper>
